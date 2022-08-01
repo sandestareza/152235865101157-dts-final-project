@@ -9,7 +9,7 @@ import {AiOutlineFileProtect} from 'react-icons/ai';
 const CardList = ({item}) => {
     return (
         <div className="flex flex-col bg-white rounded-lg border shadow-md md:flex-row md:max-w-md mt-10">
-            <img src={item.thumb} className="object-cover w-full h-full rounded-t-lg md:w-48 md:rounded-none md:rounded-l-lg"/>
+            <img src={item.thumb} alt="thumb" className="object-cover w-full h-full rounded-t-lg md:w-48 md:rounded-none md:rounded-l-lg"/>
             <div className="flex flex-col justify-between p-4 leading-normal">
                 <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 hover:text-blue-700">
                     <Link to={`/home/${item.key}`}>{item.title}</Link>
