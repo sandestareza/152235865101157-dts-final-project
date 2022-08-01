@@ -1,28 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useGetDetailReceipesQuery } from '../../services/recipesApi.js'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar.jsx';
 import Layout from '../../components/Layout.jsx';
 import LoadingPage from '../../components/LoadingPage.jsx';
 import CardItem from '../../components/CardItem.jsx';
 
-import { auth } from '../../auth/firebase.js';
-
 
 const Detail = () => {
 
     const { key } = useParams();
-    const navigate = useNavigate();
 
-    const {data, isLoading, error} = useGetDetailReceipesQuery(key)
-
-    useEffect(() => {
-        if(!auth.currentUser) {
-            navigate('/login')
-        }
-
-    }, [])
-    
+    const {data, isLoading, error} = useGetDetailReceipesQuery(key)    
     
     return (
         <div>

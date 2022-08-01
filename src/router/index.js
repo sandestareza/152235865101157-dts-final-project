@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import ProtectPage from '../components/ProtectPage';
+import ProtectPage from '../components/ProtectPage';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -33,9 +33,9 @@ const Router = () => {
         <Route 
             path='/home/:key' 
             element={
+              <ProtectPage>
                  <Detail />
-            //   <ProtectPage>
-            //   </ProtectPage>
+              </ProtectPage>
           }
         >
         </Route>
