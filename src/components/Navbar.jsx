@@ -27,10 +27,12 @@ const Navbar = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href='#' className='flex items-center'>
-                            <BsReceipt className='text-3xl mr-1 text-violet-600'/>
-                            <h2 className="text-2xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-l from-blue-600 to-violet-600">Resep App</h2>
-                        </a>
+                        <Link to="/">
+                            <div className='flex items-center'>
+                                <BsReceipt className='text-3xl mr-1 text-violet-600'/>
+                                <h2 className="text-2xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-l from-blue-600 to-violet-600">Resep App</h2>
+                            </div>
+                        </Link>
                         <div className="md:hidden">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -100,7 +102,7 @@ const Navbar = () => {
                                 }
                             </li>
                             <li className="text-gray-600 hover:text-blue-700 hover:font-bold">
-                                <a href='#'>Artikel</a>
+                                <p>Artikel</p>
                             </li>
                             <li className="text-gray-600 hover:text-blue-700 hover:font-bold">
                                 {
@@ -127,9 +129,9 @@ const Navbar = () => {
                                 }
                                 {
                                     dropDown && (
-                                        <div className="origin-top-right absolute right-0 mt-2 md:w-56 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
-                                            <div className="py-1" role="none">
-                                                <button onClick={logoutHandler} type="submit" className="text-gray-700 block w-full md:text-left px-4 py-2 text-sm" role="menuitem" tabIndex={-1} id="menu-item-3">
+                                        <div className="origin-top-right absolute right-0 mt-2 md:w-56 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
+                                            <div className="py-1">
+                                                <button onClick={logoutHandler} type="button" className="text-gray-700 block w-full md:text-left px-4 py-2 text-sm" tabIndex={-1} id="menu-item-3">
                                                     Sign out
                                                 </button>
                                             </div>

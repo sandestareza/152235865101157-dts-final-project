@@ -181,10 +181,10 @@ function FormLoginRegister({title}) {
 								<div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
 									<p className="text-center font-semibold mx-4 mb-0">OR</p>
 								</div>
-								<button type='button' onClick={signInWithGoogle} className="px-7 py-3 text-slate-800 font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3" style={{backgroundColor: '#fff'}} role="button" data-mdb-ripple="true" data-mdb-ripple-color="light">
+								<button type='button' onClick={signInWithGoogle} className="px-7 py-3 text-slate-800 font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3" style={{backgroundColor: '#fff'}}>
 									<FcGoogle className='mr-2 text-xl'/>Continue with Google
 								</button>	
-								<button type='button' onClick={signInWithFacebook} className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3" style={{backgroundColor: '#3b5998'}} role="button" data-mdb-ripple="true" data-mdb-ripple-color="light">
+								<button type='button' onClick={signInWithFacebook} className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3" style={{backgroundColor: '#3b5998'}}>
 								<FaFacebookSquare className='mr-2 text-xl'/>Continue with Facebook
 								</button>	
 							</>
