@@ -167,7 +167,7 @@ function FormLoginRegister({title}) {
 					{
 						title === 'Sign In' && (
 							<div className="flex justify-end items-center mb-6">						
-								<a className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out">Forgot password?</a>
+								<p className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out hover:cursor-pointer">Forgot password?</p>
 							</div>
 						)
 					}
@@ -195,14 +195,14 @@ function FormLoginRegister({title}) {
 							<p className="text-sm font-semibold mt-2 pt-1 mb-0">
 							Don't have an account?
 							<Link to="/register">
-								<a className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2">Register</a>
+								<p className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Register</p>
 							</Link>
 							</p>
 						:
 							<p className="text-sm font-semibold mt-2 pt-1 mb-0">
 							 Already have an account?
 							 <Link to="/login">
-								<a className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2">Login</a>
+								<p className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Login</p>
 							 </Link>
 							</p>
 
