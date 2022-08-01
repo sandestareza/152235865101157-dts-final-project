@@ -5,6 +5,8 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Detail from '../pages/Home/detail';
+import Kategori from '../pages/Kategori';
+import Search from '../pages/Search';
 
 
 const Router = () => {
@@ -25,8 +27,6 @@ const Router = () => {
             path='/' 
             element={
                  <Home />
-            //   <ProtectPage>
-            //   </ProtectPage>
           }
         >
         </Route>
@@ -36,6 +36,20 @@ const Router = () => {
               <ProtectPage>
                  <Detail />
               </ProtectPage>
+          }
+        >
+        </Route>
+        <Route 
+            path='/kategori/:key' 
+            element={
+              <Kategori />
+          }
+        >
+        </Route>
+        <Route 
+            path='/search/:key' 
+            element={
+              <Search />
           }
         >
         </Route>

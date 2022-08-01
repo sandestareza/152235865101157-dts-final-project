@@ -22,6 +22,11 @@ const Navbar = () => {
         navigate("/login");
     }
 
+    const detailKategori = (id) => {
+        navigate(`/kategori/${id}`)
+        setKategoris(false)
+    }
+
     return (
         <nav className="w-full bg-white shadow">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -78,7 +83,7 @@ const Navbar = () => {
                         }`}
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                            <li className="text-gray-600 hover:text-blue-700 hover:font-bold">
+                            <li className="text-gray-600 hover:text-blue-700">
                                 <button onClick={()=>setKategoris(!kategoris)} type="button" className='inline-flex justify-center w-full'>
                                     Kategori
                                     <svg className="-mr-1 mt-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -88,11 +93,11 @@ const Navbar = () => {
                                 {
                                     kategoris && (
                                         <div id="dropdown" className="absolute top-14 z-10 w-40 bg-white rounded divide-y divide-gray-100 shadow">
-                                            <ul className="py-1 text-sm text-left text-gray-700" aria-labelledby="dropdownDefault">
+                                            <ul className="py-1 text-sm text-gray-700" aria-labelledby="dropdownDefault">
                                                 {
                                                     data && data.results.map((item, i) => (
                                                         <li key={i}>
-                                                            <Link to={`/kategori/${item.key}`} className="block py-2 px-4 hover:bg-gray-100 hover:font-normal">{item.category}</Link>
+                                                            <button type="button" onClick={()=>detailKategori(item.key)} className="block py-2 px-4 hover:bg-gray-100 w-full text-left">{item.category}</button>
                                                         </li>
                                                     ))
                                                 }
@@ -100,9 +105,6 @@ const Navbar = () => {
                                         </div>                          
                                     )
                                 }
-                            </li>
-                            <li className="text-gray-600 hover:text-blue-700 hover:font-bold">
-                                <p>Artikel</p>
                             </li>
                             <li className="text-gray-600 hover:text-blue-700 hover:font-bold">
                                 {

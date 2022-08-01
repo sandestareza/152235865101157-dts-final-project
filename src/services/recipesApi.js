@@ -19,6 +19,12 @@ export const recipesApi = createApi({
         getKategori: builder.query({
             query: () => "/category/recipes",
         }),
+        getDetailKategori: builder.query({
+            query: (key) => `/category/recipes/${key}`,
+        }),
+        search: builder.query({
+            query: (key) => `/search?q=${key}`,
+        })
     }),
 });
   
@@ -26,4 +32,6 @@ export const {
     useGetRecipesQuery,
     useGetDetailReceipesQuery,
     useGetKategoriQuery,
+    useGetDetailKategoriQuery,
+    useSearchQuery,
 } = recipesApi;

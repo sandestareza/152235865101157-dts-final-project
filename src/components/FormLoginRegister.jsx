@@ -195,14 +195,14 @@ function FormLoginRegister({title}) {
 							<p className="text-sm font-semibold mt-2 pt-1 mb-0">
 							Don't have an account?
 							<Link to="/register">
-								<p className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Register</p>
+								<span className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Register</span>
 							</Link>
 							</p>
 						:
 							<p className="text-sm font-semibold mt-2 pt-1 mb-0">
 							 Already have an account?
 							 <Link to="/login">
-								<p className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Login</p>
+								<span className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Login</span>
 							 </Link>
 							</p>
 
