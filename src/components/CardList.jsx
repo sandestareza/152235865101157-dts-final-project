@@ -22,14 +22,20 @@ const CardList = ({item}) => {
                             {item.portion}
                         </span>
                     }
-                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">                        
-                        <BiTimer className="mr-1 text-xl"/>
-                        {item.times}
-                    </span>
-                    <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-blue-600 rounded-full md:mt-1">                        
-                        <AiOutlineFileProtect className="mr-1 text-xl"/>
-                        {item.dificulty}
-                    </span>
+                    {
+                        !item.times ? '' :
+                        <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">                        
+                            <BiTimer className="mr-1 text-xl"/>
+                            {item.times}
+                        </span>
+                    }
+                    {
+                        !item.dificulty ? '' :
+                        <span className="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-blue-600 rounded-full md:mt-1">                        
+                            <AiOutlineFileProtect className="mr-1 text-xl"/>
+                            {item.dificulty}
+                        </span>
+                    }
                 </p>
             </div>
         </div>	

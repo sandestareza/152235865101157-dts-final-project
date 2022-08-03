@@ -7,6 +7,7 @@ import Register from '../pages/Register';
 import Detail from '../pages/Home/detail';
 import Kategori from '../pages/Kategori';
 import Search from '../pages/Search';
+import LupaPassword from '../pages/LupaPassword';
 
 
 const Router = () => {
@@ -21,6 +22,11 @@ const Router = () => {
         <Route 
             path='/register'
             element={<Register />}
+        >            
+        </Route>
+        <Route 
+            path='/lupaPassword'
+            element={<LupaPassword />}
         >            
         </Route>
         <Route 

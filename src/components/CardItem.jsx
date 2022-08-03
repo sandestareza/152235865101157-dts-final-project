@@ -28,10 +28,10 @@ const CardItem = ({data}) => {
             <div className="flex justify-center mt-4">
                 <div className="block p-6 rounded-lg border bg-white w-full">
                     <h5 className="text-gray-900 text-sm leading-tight font-medium mb-8">
-                        <span className="inline-flex items-center justify-center px-2 py-2 mr-2 text-xs font-bold leading-none text-red-100 bg-blue-600 rounded-full">                        
+                        <span className="inline-flex items-center justify-center px-2 py-2 mr-2 mb-2 text-xs font-bold leading-none text-red-100 bg-blue-600 rounded-full">                        
                             Tingkat kesulitan:  {data.dificulty}
                         </span>
-                        <span className="inline-flex items-center justify-center px-2 py-2 mr-2 text-xs font-bold leading-none text-red-100 bg-blue-600 rounded-full">
+                        <span className="inline-flex items-center justify-center px-2 py-2 mr-2 mb-2 text-xs font-bold leading-none text-red-100 bg-blue-600 rounded-full">
                             Durasi:  {data.times}
                         </span>
                     </h5>

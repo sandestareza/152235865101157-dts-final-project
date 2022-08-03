@@ -9,10 +9,12 @@ import {
 } from "../auth/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle, } from 'react-icons/fc';
 import {FaFacebookSquare} from 'react-icons/fa';
+import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 
 import IconLogin from '../assets/img/loginIcon.svg'
+import Alert from './Alert';
 
 function FormLoginRegister({title}) {
 	const [user, isLoading] = useAuthState(auth);
@@ -26,6 +28,12 @@ function FormLoginRegister({title}) {
 	});
 
   	const [errorMessage, setErrorMessage] = useState(null);
+
+	const [showPassword, setShowPassword] = useState(false);
+
+	const handleShowPassword = () => {
+		setShowPassword(!showPassword);
+	}
 
 	const handleChangeFullName = (e) => {
 		setCredential({
@@ -131,12 +139,9 @@ function FormLoginRegister({title}) {
 					<h1 className='text-center mb-8 text-xl'>Selamat datang di Aplikasi <br/><span className='font-bold text-3xl uppercase bg-clip-text text-transparent bg-gradient-to-l from-blue-600 to-violet-600'>Resep App</span> </h1>
 					{
 						errorMessage?.msg && (
-							<div className="bg-red-100 rounded-lg py-5 px-6 mb-3 text-base text-red-700 inline-flex items-center w-full" role="alert">
-								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" className="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-									<path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z" />
-								</svg>
+							<Alert>
 								{errorMessage?.msg}
-							</div>
+							</Alert>
 						)
 					}
 					<form onSubmit={handleSubmit}>
@@ -158,16 +163,27 @@ function FormLoginRegister({title}) {
 						{errorMessage?.emailError && (<span className='text-red-500'>{errorMessage?.emailError}</span>)}
 					</div>
 					{/* Password input */}
-					<div className="mb-6">
-						<input type="password" className={`form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none ${errorMessage?.passwordError && 'border-red-500 focus:border-red-700'}`} placeholder="Password"
+					<div className="mb-6 relative">
+						<input type={showPassword ? "text" : "password"} className={`form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none ${errorMessage?.passwordError && 'border-red-500 focus:border-red-700'}`} placeholder="Password"
 						onChange={handleChangePassword}
 						/>
+						{
+							credential.password && (
+								showPassword ? 
+									<RiEyeLine className='absolute top-3 right-3 text-xl text-blue-800' onClick={handleShowPassword}/>
+								:
+									<RiEyeCloseLine className='absolute top-3 right-3 text-xl text-blue-800' onClick={handleShowPassword}/>
+							)
+
+						}
 						{errorMessage?.passwordError && (<span className='text-red-500'>{errorMessage?.passwordError}</span>)}
 					</div>
 					{
 						title === 'Sign In' && (
-							<div className="flex justify-end items-center mb-6">						
-								<p className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out hover:cursor-pointer">Forgot password?</p>
+							<div className="flex justify-end items-center mb-6">		
+								<Link to="/lupaPassword">
+									<p className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out hover:cursor-pointer">Lupa password?</p>
+								</Link>				
 							</div>
 						)
 					}
@@ -182,10 +198,10 @@ function FormLoginRegister({title}) {
 									<p className="text-center font-semibold mx-4 mb-0">OR</p>
 								</div>
 								<button type='button' onClick={signInWithGoogle} className="px-7 py-3 text-slate-800 font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3" style={{backgroundColor: '#fff'}}>
-									<FcGoogle className='mr-2 text-xl'/>Continue with Google
+									<FcGoogle className='mr-2 text-xl'/>Masuk dengan Google
 								</button>	
 								<button type='button' onClick={signInWithFacebook} className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3" style={{backgroundColor: '#3b5998'}}>
-								<FaFacebookSquare className='mr-2 text-xl'/>Continue with Facebook
+								<FaFacebookSquare className='mr-2 text-xl'/>Masuk dengan Facebook
 								</button>	
 							</>
 						)
@@ -193,16 +209,16 @@ function FormLoginRegister({title}) {
 					{
 						title === 'Sign In' ? 
 							<p className="text-sm font-semibold mt-2 pt-1 mb-0">
-							Don't have an account?
+							Belum punya akun?
 							<Link to="/register">
-								<span className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Register</span>
+								<span className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Daftar</span>
 							</Link>
 							</p>
 						:
 							<p className="text-sm font-semibold mt-2 pt-1 mb-0">
-							 Already have an account?
+							 Sudah punya akun?
 							 <Link to="/login">
-								<span className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Login</span>
+								<span className="text-blue-600 hover:text-blue-800 focus:text-blue-800 transition duration-200 ease-in-out ml-2 hover:cursor-pointer">Masuk</span>
 							 </Link>
 							</p>
 

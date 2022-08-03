@@ -6,6 +6,7 @@ import LoadingPage from '../../components/LoadingPage'
 import Navbar from '../../components/Navbar'
 import BreadCrump from '../../components/BreadCrump'
 import { useSearchQuery } from '../../services/recipesApi'
+import Alert from '../../components/Alert'
 
 const Search = () => {
 
@@ -28,9 +29,15 @@ const Search = () => {
                                 <h1 className='text-red-500'>{error}</h1>
                             </div>
                         ) : (
+                            data.results.length ? 
                             data.results.map((item, index) => (
                                 <CardList key={index} item={item}/>
                             ))
+
+                            :
+                            <Alert title="info">
+                                <p>Kata <span className='font-bold'>{key}</span> yang dicari tidak ditemukan!</p>
+                            </Alert>
                         )
                     }
                     </div>

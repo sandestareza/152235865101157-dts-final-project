@@ -8,7 +8,8 @@ import {
     updateProfile,
     GoogleAuthProvider,
     signInWithPopup,
-    FacebookAuthProvider
+    FacebookAuthProvider,
+    sendPasswordResetEmail
 } from "firebase/auth";
 
 
@@ -64,7 +65,6 @@ const signInWithFacebook = async () => {
     }
 }
 
-
 const createUserApp = async (email, password, name) => {
     try {
         const response = await createUserWithEmailAndPassword(
@@ -91,6 +91,21 @@ const signOutApp = async () => {
     }
 }
 
+const forgetPassword = async (email) => {
+    try {
+        await sendPasswordResetEmail(auth, email);
+        return {
+            status : 200,
+            message : 'Email berhasil dikirim'
+        }
+    } catch (err) {
+        return {
+            status: 400,
+            err
+        };
+    }
+}
+
 
 export {
     auth,
@@ -98,5 +113,6 @@ export {
     signOutApp,
     createUserApp,
     signInWithGoogle,
-    signInWithFacebook
+    signInWithFacebook,
+    forgetPassword
 };

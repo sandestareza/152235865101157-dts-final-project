@@ -92,12 +92,12 @@ const Navbar = () => {
                                 </button>
                                 {
                                     kategoris && (
-                                        <div id="dropdown" className="absolute top-14 z-10 w-40 bg-white rounded divide-y divide-gray-100 shadow">
+                                        <div id="dropdown" className="absolute left-0 w-full md:top-14 z-10 md:w-40 bg-white rounded divide-y divide-gray-100 shadow">
                                             <ul className="py-1 text-sm text-gray-700" aria-labelledby="dropdownDefault">
                                                 {
                                                     data && data.results.map((item, i) => (
                                                         <li key={i}>
-                                                            <button type="button" onClick={()=>detailKategori(item.key)} className="block py-2 px-4 hover:bg-gray-100 w-full text-left">{item.category}</button>
+                                                            <button type="button" onClick={()=>detailKategori(item.key)} className="block py-2 px-4 hover:bg-gray-100 w-full text-center md:text-left">{item.category}</button>
                                                         </li>
                                                     ))
                                                 }
